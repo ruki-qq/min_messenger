@@ -1,5 +1,3 @@
-from dataclasses import dataclass, field
-
 from pydantic_settings import BaseSettings
 
 
@@ -54,10 +52,9 @@ class DBSettings(BaseSettings):
         )
 
 
-@dataclass(frozen=True)
 class Settings:
-    db: DBSettings = field(default_factory=DBSettings)
-    app: AppSettings = field(default_factory=AppSettings)
+    db: DBSettings = DBSettings()
+    app: AppSettings = AppSettings()
 
 
 settings = Settings()
